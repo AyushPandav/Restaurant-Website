@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eatscape - About Us</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: #f9f5f0;
+            color: #333;
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation - Consistent with previous pages */
+        header {
+            background: rgba(0, 0, 0, 0.7);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        #navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        .logo span {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ff6b35;
+        }
+        #navbar ul {
+            display: flex;
+            list-style: none;
+        }
+        #navbar ul li {
+            margin-left: 2rem;
+        }
+        #navbar ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        #navbar ul li a:hover {
+            color: #ff6b35;
+        }
+        .mobile-menu {
+            display: none;
+            cursor: pointer;
+            font-size: 1.8rem;
+            color: #fff;
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 70vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://media.istockphoto.com/id/1248298359/photo/luxury-restaurant-interior-at-night.jpg?s=612x612&w=0&k=20&c=Uy2slhNJFTcHdQfRG5bSsOsFfl7J10a5ub5ZVofk-6c=') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            margin-top: 70px;
+        }
+        #hero h1 {
+            font-size: 4rem;
+        }
+        #hero p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 1rem auto 0;
+        }
+
+        /* About Section */
+        #about {
+            padding: 100px 0;
+            background: #fff;
+        }
+        .title {
+            text-align: center;
+            font-size: 3.5rem;
+            margin-bottom: 4rem;
+            color: #333;
+        }
+        .about_row {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            margin-bottom: 6rem;
+        }
+        .about_column {
+            flex: 1;
+        }
+        .about_column p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        .about_column button {
+            background: #ff6b35;
+            color: #fff;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .about_column button:hover {
+            background: #e55a2b;
+        }
+        .about_column img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Image Gallery Section */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .gallery img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            #navbar ul {
+                display: none;
+                flex-direction: column;
+                background: rgba(0, 0, 0, 0.9);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                padding: 1rem 0;
+            }
+            #navbar ul.show {
+                display: flex;
+            }
+            #navbar ul li {
+                margin: 1rem 0;
+                text-align: center;
+            }
+            .mobile-menu {
+                display: block;
+            }
+            .about_row {
+                flex-direction: column;
+            }
+            #hero h1 {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav id="navbar" class="container">
+            <div class="logo"><span>Eatscape</span></div>
+            <div class="mobile-menu" onclick="document.querySelector('#navbar ul').classList.toggle('show')">☰</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Menu.html">Menu</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="order.html">Order</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <div class="container">
+            <h1>About Eatscape</h1>
+            <p>Passion for food, dedication to quality, and a warm welcome for every guest.</p>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h1 class="title">About Us</h1>
+
+            <div class="about_row">
+                <div class="about_column">
+                    <p>At Eatscape, we are more than just a restaurant — we are a family dedicated to creating memorable dining experiences. Founded with a passion for fresh, seasonal ingredients and bold flavors, our kitchen brings together traditional techniques and modern creativity.</p>
+                    <p>Our team of talented chefs sources the finest local produce, crafting each dish with care and attention to detail. Whether you're joining us for an intimate dinner or a celebration with friends, we strive to make every visit special.</p>
+                    <button>Learn More</button>
+                </div>
+                <div class="about_column">
+                    <img src="https://static.vecteezy.com/system/resources/previews/071/070/577/large_2x/smiling-culinary-professional-in-a-bright-restaurant-kitchen-free-photo.jpg" alt="Smiling professional chef in kitchen">
+                </div>
+            </div>
+
+            <div class="about_row" style="flex-direction: row-reverse;">
+                <div class="about_column">
+                    <p>We believe in sustainability, community, and the joy of sharing good food. From our cozy, elegant interior to our carefully curated menu, everything at Eatscape is designed to delight your senses and warm your heart.</p>
+                    <p>Come experience the difference that passion and quality make.</p>
+                </div>
+                <div class="about_column">
+                    <img src="https://www.caffelattehome.com/img/inspirations/elegance-embodied-a-luxury-dining-room-with-gold-accents/elegance-embodied-a-luxury-dining-room-with-gold-accents.jpg" alt="Elegant restaurant dining area">
+                </div>
+            </div>
+
+            <h2 style="text-align: center; font-size: 2.8rem; margin: 4rem 0 3rem;">Our Team & Kitchen</h2>
+            <div class="gallery">
+                <img src="https://www.shutterstock.com/shutterstock/photos/1588338139/display_1500/stock-photo-professional-chef-smiling-cook-man-gesturing-okay-sign-standing-next-to-work-table-in-restaurant-1588338139.jpg" alt="Professional chef smiling">
+                <img src="https://thumbs.dreamstime.com/b/happy-restaurant-staff-gesturing-thumbs-up-21963040.jpg" alt="Happy restaurant team">
+                <img src="https://thumbs.dreamstime.com/b/colorful-arrangement-fresh-vegetables-fruits-herbs-spices-kitchenware-sunlit-countertop-351173569.jpg" alt="Fresh ingredients on kitchen counter">
+                <img src="https://cdn.galeriemagazine.com/wp-content/uploads/2025/09/SantAmbroeus_Aspen_GT2420_SA-PRESS-1.jpg?strip=all&quality=92&webp=92&sharp=1" alt="Modern elegant restaurant interior">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            &copy; Copyright 2025 Eatscape. All rights reserved.<br>
+            Designed with ❤️ for food lovers.
+        </div>
+    </footer>
+
+</body>
+</html>

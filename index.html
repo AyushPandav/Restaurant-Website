@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eatscape - Delicious Dining Experience</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f5f0;
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header and Navigation */
+        header {
+            background: rgba(0, 0, 0, 0.7);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        #navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        .logo span {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ff6b35;
+        }
+        #navbar ul {
+            display: flex;
+            list-style: none;
+        }
+        #navbar ul li {
+            margin-left: 2rem;
+        }
+        #navbar ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        #navbar ul li a:hover {
+            color: #ff6b35;
+        }
+
+        /* Mobile Menu (simple toggle) */
+        .mobile-menu {
+            display: none;
+            cursor: pointer;
+            font-size: 1.8rem;
+            color: #fff;
+        }
+        @media (max-width: 768px) {
+            #navbar ul {
+                display: none;
+                flex-direction: column;
+                background: rgba(0, 0, 0, 0.9);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                padding: 1rem 0;
+            }
+            #navbar ul.show {
+                display: flex;
+            }
+            #navbar ul li {
+                margin: 1rem 0;
+                text-align: center;
+            }
+            .mobile-menu {
+                display: block;
+            }
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.squarespace-cdn.com/content/v1/57a100f7e4fcb592ee30586c/3f78881f-b437-4aeb-96db-a32676916d51/AdobeStock_299415966.jpeg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+        }
+        #hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        #hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        .btn {
+            background: #ff6b35;
+            color: #fff;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #e55a2b;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+        h2 {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        /* Featured Dishes */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .gallery img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* About Section */
+        #about {
+            background: #fff;
+        }
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+        .about-text {
+            flex: 1;
+        }
+        .about-images {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .about-images img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+            }
+        }
+
+        /* Testimonials */
+        #testimonials {
+            background: #f0e6d6;
+        }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .testimonial {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .testimonial img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 2rem 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav id="navbar" class="container">
+            <div class="logo"><span>Eatscape</span></div>
+            <div class="mobile-menu" onclick="document.querySelector('#navbar ul').classList.toggle('show')">☰</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Menu.html">Menu</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="order.html">Order</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <div class="container">
+            <h1 class="h-primary">Welcome to Eatscape</h1>
+            <p class="g-primary">Our kitchen is a place where flavors come to life, and each dish is a celebration of fresh, seasonal ingredients. Join us and experience a dining experience like no other.</p>
+            <button class="btn">Order Now</button>
+        </div>
+    </section>
+
+    <section id="menu">
+        <div class="container">
+            <h2>Featured Dishes</h2>
+            <div class="gallery">
+    <img src="https://images.unsplash.com/photo-1550547660-d9450f859349" alt="Gourmet Burger">
+    <img src="https://uk.ooni.com/cdn/shop/articles/20220211142645-margherita-9920_e41233d5-dcec-461c-b07e-03245f031dfe.jpg?v=1737105431&width=1080" alt="Margherita Pizza">
+    <img src="https://www.billyparisi.com/wp-content/uploads/2023/08/grilled-salmon-1.jpg" alt="Grilled Salmon">
+    <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9" alt="Creamy Pasta">
+    <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092" alt="Ribeye Steak">
+    <img src="https://images.unsplash.com/photo-1550304943-4f24f54ddde9" alt="Healthy Salad">
+</div>
+
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>At Eatscape, we believe in crafting unforgettable meals using only the finest, locally-sourced ingredients. Our passionate chefs bring creativity and tradition together to deliver dishes that delight the senses.</p>
+                    <br>
+                    <p>Whether you're here for a romantic dinner, family gathering, or quick bite, our warm and modern atmosphere makes every visit special.</p>
+                </div>
+               <div class="about-images">
+    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5" alt="Restaurant Interior">
+    <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1" alt="Chef Cooking">
+    <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de" alt="Fine Dining Table">
+    <img src="https://images.squarespace-cdn.com/content/v1/57a100f7e4fcb592ee30586c/1586190495133-7SYGEVIIZMSZH9IAEBEK/IMG_2455.jpg" alt="Plated Dish">
+</div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials">
+        <div class="container">
+            <h2>Happy Customers</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+    <img src="" alt="Customer Sarah">
+    <p>"Best dining experience in town! The food is incredible and the service is top-notch."</p>
+    <strong>- Sarah J.</strong>
+</div>
+
+                <div class="testimonial">
+    <img src="" alt="Customer Mike">
+    <p>"Amazing flavors and beautiful presentation. We come here every weekend!"</p>
+    <strong>- Mike & Family</strong>
+</div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            &copy; Copyright 2025 Eatscape. All rights reserved.<br>
+            Designed with ❤️ for food lovers.
+        </div>
+    </footer>
+
+</body>
+</html>
